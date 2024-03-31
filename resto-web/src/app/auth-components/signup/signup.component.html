@@ -1,0 +1,57 @@
+<div class="bg">
+  <div class="parent">
+    <div class="child">
+      <div class="content">
+        <div class="imgDiv">
+          <img src="assets/z.png" alt="Your Image" style="width: 200px; height: auto;">
+          <h1 style="text-align: center; color: #09a113;">Sign Up</h1>
+        </div>
+        <form nz-form [formGroup]="validateForm">
+          <nz-form-item>
+            <nz-form-control nzHasFeedback nzErrorTip="The input is not a valid E-mail!">
+              <input nz-input placeholder="E-mail" formControlName="email" id="email" />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control nzHasFeedback [nzErrorTip]="errorPass">
+              <input nz-input placeholder="Password" type="password" id="password" formControlName="password" />
+              <ng-template #errorPass let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                  <span style="color: red;">Password wajib diisi!</span>
+                </ng-container>
+                <ng-container *ngIf="control.hasError('pattern')">
+                  <span style="color: red;">Password harus terdiri dari setidaknya 8 karakter, 1 huruf kecil, 1 huruf besar, 1 angka, dan 1 karakter khusus</span>
+                </ng-container>
+              </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control nzHasFeedback [nzErrorTip]="errorTpl">
+              <input nz-input type="password" placeholder="Konfirmasi Password" formControlName="checkPassword" id="checkPassword" />
+              <ng-template #errorTpl let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                  <span style="color: red;">Silakan konfirmasi password Anda!</span>
+                </ng-container>
+                <ng-container *ngIf="control.hasError('confirm')">
+                  <span style="color: red;">Konfirmasi password tidak sesuai dengan password</span>
+                </ng-container>
+              </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control nzHasFeedback [nzErrorTip]="userErrorTpl">
+              <input nz-input placeholder="Nama" id="username" formControlName="name" />
+              <ng-template #userErrorTpl let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                  <span style="color: red;">Silakan masukkan nama Anda!</span>
+                </ng-container>
+              </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+          <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" (click)="register()">Daftar</button>
+          <p style="text-align: center; margin-top: 10px;">Atau <a routerLink="/login">masuk sekarang!</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
