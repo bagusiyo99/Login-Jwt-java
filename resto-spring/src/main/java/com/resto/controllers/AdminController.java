@@ -13,7 +13,6 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping("/api/admin")
-@RequiredArgsConstructor
 public class AdminController {
     private final AdminService adminService;
 
