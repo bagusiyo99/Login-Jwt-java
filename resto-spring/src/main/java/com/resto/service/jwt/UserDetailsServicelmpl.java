@@ -1,4 +1,4 @@
-package com.resto.service.auth.jwt;
+package com.resto.service.jwt;
 
 import com.resto.repositories.UserRepository;
 import org.springframework.security.core.userdetails.User;

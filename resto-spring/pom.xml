@@ -76,6 +76,17 @@
 			<artifactId>android-json</artifactId>
 			<version>0.0.20131108.vaadin1</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.22</version> <!-- Ganti dengan versi terbaru Lombok -->
+			<scope>provided</scope>
+		</dependency>
 
 	</dependencies>
 

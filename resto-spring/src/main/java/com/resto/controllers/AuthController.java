@@ -10,10 +10,9 @@ import com.resto.entities.User;
 import com.resto.repositories.UserRepository;
 import com.resto.service.auth.AuthSevice;
 
-import com.resto.service.auth.jwt.UserDetailsServicelmpl;
+import com.resto.service.jwt.UserDetailsServicelmpl;
 import com.resto.until.JwtUtil;
 import jakarta.servlet.http.HttpServletResponse;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

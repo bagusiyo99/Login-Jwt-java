@@ -5,6 +5,7 @@ import com.resto.dtos.UserDto;
 import com.resto.entities.User;
 import com.resto.enums.UserRole;
 import com.resto.repositories.UserRepository;
+import com.resto.service.auth.AuthSevice;
 import jakarta.annotation.PostConstruct;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
