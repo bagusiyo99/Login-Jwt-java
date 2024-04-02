@@ -5,7 +5,6 @@ import com.resto.dtos.UserDto;
 import com.resto.entities.User;
 import com.resto.enums.UserRole;
 import com.resto.repositories.UserRepository;
-import com.resto.service.auth.AuthSevice;
 import jakarta.annotation.PostConstruct;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -28,7 +27,7 @@ public class AuthSeviceImplementation implements AuthSevice {
             User user = new User();
             user.setName("admin");
             user.setEmail("admin@test.com");
-            user.setPassword(new BCryptPasswordEncoder().encode("admin"));
+            user.setPassword(new BCryptPasswordEncoder().encode("12345"));
             user.setUserRole(UserRole.ADMIN);
             userRepository.save(user);
         }

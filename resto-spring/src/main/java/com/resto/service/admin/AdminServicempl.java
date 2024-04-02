@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AdminServicempl implements AdminService {
@@ -31,5 +33,10 @@ public class AdminServicempl implements AdminService {
         createdCategoryDto.setId(createdCategory.getId());
 
         return createdCategoryDto;
+    }
+
+    @Override
+    public List<CategoryDto> getAllCategories() {
+        return categoryRepository.findAll().stream().map(Category::getCategoryDto).collect(Collectors.toList());
     }
 }
