@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-const TOKEN = 'token';
-const USER = 'user';
+const TOKEN_KEY = 'token';
+const USER_KEY = 'user';
 
 @Injectable({
   providedIn: 'root'
@@ -11,54 +11,58 @@ export class StorageService {
   constructor() { }
 
   static saveToken(token: string): void {
-    window.localStorage.removeItem(TOKEN);
-    window.localStorage.setItem(TOKEN, token);
+    localStorage.setItem(TOKEN_KEY, token);
   }
 
-  static saveUser(user: any): void { // Ubah tipe parameter menjadi 'any'
-    window.localStorage.removeItem(USER);
-    window.localStorage.setItem(USER, JSON.stringify(user));
+  static getToken(): string | null {
+    return localStorage.getItem(TOKEN_KEY);
   }
 
-  static getUser(): any { // Tambahkan metode untuk mendapatkan pengguna dari penyimpanan lokal
-    return JSON.parse(localStorage.getItem(USER));
+  static getUser(): any {
+    const userStr = localStorage.getItem(USER_KEY);
+    if (userStr) {
+      return JSON.parse(userStr);
+    }
+    return null;
   }
 
-  static getToken ():string{
-    return localStorage.getItem(TOKEN);
-    
+  static signout(): void {
+  localStorage.removeItem(TOKEN_KEY);
+  localStorage.removeItem(USER_KEY);
+}
+
+  static saveUser(user: any): void {
+    localStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
+  static clearStorage(): void {
+    localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(USER_KEY);
+  }
 
-  static getUserRole():string{
+  static getUserRole(): string {
     const user = this.getUser();
-    if (user == null) {return '';}
-  return user.role;
+    if (user && user.role) {
+      return user.role;
+    }
+    return '';
   }
 
-
-    static isAdminLoggedIn():boolean{
-    if (this.getToken() === null) {
-    return false;
+  static isAdminLoggedIn(): boolean {
+    const token = this.getToken();
+    if (!token) {
+      return false;
     }
-      const role: string = this.getUserRole();
-      return role == "ADMIN";
+    const role = this.getUserRole();
+    return role === 'ADMIN';
+  }
 
+  static isCustomerLoggedIn(): boolean {
+    const token = this.getToken();
+    if (!token) {
+      return false;
     }
-
-    static isCustomerLoggedIn():boolean{
-    if (this.getToken() === null) {
-    return false;
-    }
-      const role: string = this.getUserRole();
-      return role == "CUSTOMER";
-
-    }
-
-    static signout(){
-      window.localStorage.removeItem(USER);
-      window.localStorage.removeItem(TOKEN);
-    }
-
-
+    const role = this.getUserRole();
+    return role === 'CUSTOMER';
+  }
 }

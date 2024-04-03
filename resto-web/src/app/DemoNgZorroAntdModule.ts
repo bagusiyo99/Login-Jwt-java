@@ -25,7 +25,7 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
-import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzFormModule } from 'ng-zorro-antd/form'; // Menambahkan NzFormModule
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzI18nModule } from 'ng-zorro-antd/i18n';
 import { NzIconModule } from 'ng-zorro-antd/icon';
@@ -93,7 +93,7 @@ import { NzPipesModule } from 'ng-zorro-antd/pipes';
     NzDrawerModule,
     NzDropDownModule,
     NzEmptyModule,
-    NzFormModule,
+    NzFormModule, // Menambahkan NzFormModule
     NzGridModule,
     NzI18nModule,
     NzIconModule,

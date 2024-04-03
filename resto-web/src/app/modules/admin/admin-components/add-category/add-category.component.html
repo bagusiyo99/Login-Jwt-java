@@ -1,1 +1,28 @@
-<p>add-category works!</p>
+<div class="form-container">
+  <form [formGroup]="categoryForm" (ngSubmit)="postCategory()">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name">
+      <div *ngIf="categoryForm.get('name').invalid && (categoryForm.get('name').dirty || categoryForm.get('name').touched)" class="error-message">
+        <div *ngIf="categoryForm.get('name').errors">Name is required</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="description">Description:</label>
+      <textarea id="description" formControlName="description"></textarea>
+      <div *ngIf="categoryForm.get('description').invalid && (categoryForm.get('description').dirty || categoryForm.get('description').touched)" class="error-message">
+        <div *ngIf="categoryForm.get('description').errors">Description is required</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="img">Foto:</label>
+      <input type="file" id="img" (change)="onFileSelected($event)">
+      <img [src]="imagePreview" *ngIf="imagePreview" alt="Preview" class="image-preview">
+      <div *ngIf="selectedFile && (categoryForm.get('img').dirty || categoryForm.get('img').touched)" class="error-message">
+      </div>
+    </div>
+    <button nz-button class="button" [nzType]="'primary'" type="submit">add</button>
+  </form>
+</div>

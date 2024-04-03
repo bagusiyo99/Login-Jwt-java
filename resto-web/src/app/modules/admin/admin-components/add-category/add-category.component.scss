@@ -1,0 +1,61 @@
+/* Style for form container */
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin-top: 30px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+/* Style for form elements */
+.form-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-container input[type="text"],
+.form-container textarea,
+.form-container input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  /* Ensure padding and border are included in element's total width and height */
+}
+
+.form-container input[type="file"] {
+  cursor: pointer;
+}
+
+/* Style for error messages */
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+
+/* Style for submit button */
+.form-container button[type="button"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.form-container button[type="button"]:hover {
+  background-color: #45a049;
+}
+
+/* Style for image preview */
+.image-preview {
+  max-width: 200px;
+  margin-top: 10px;
+}
