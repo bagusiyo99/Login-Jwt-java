@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -38,7 +39,7 @@ public class WebSecurityConfiguration {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request.requestMatchers("/api/auth/**")
                         .permitAll()
-                        .requestMatchers("/api/admin/**").hasAnyAuthority(UserRole.ADMIN.name())
+                        .requestMatchers(HttpMethod.GET,"/api/admin/**").hasAnyAuthority(UserRole.ADMIN.name())
                         .anyRequest().authenticated())
                 .sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider()).addFilterBefore(
