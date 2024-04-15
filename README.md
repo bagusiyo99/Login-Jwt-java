@@ -1,1 +1,1 @@
- Jwt angular and springboot
+ Jwt springboot
